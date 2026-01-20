@@ -2,7 +2,7 @@
 import { FaMoneyBillWave } from "react-icons/fa6";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import type { investDataType } from "../Invest";
+import type { investDataType } from "../Pages/Invest";
 
 export function InvestType({
   handleNext,

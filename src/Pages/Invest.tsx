@@ -4,7 +4,7 @@ import {
   LumpsumInvest,
   Result,
   SipInvest,
-} from "./Components/investForm";
+} from "../Components/investForm";
 export type investDataType = {
   principle: string;
   return: string;

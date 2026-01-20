@@ -1,4 +1,4 @@
-import Card from "./Components/Card";
+import Card from "../Components/Card";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { FaChartPie } from "react-icons/fa";
 

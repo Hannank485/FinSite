@@ -1,10 +1,10 @@
 import Navbar from "./Components/Navbar";
-import Home from "./Home";
+import Home from "./Pages/Home";
 import Footer from "./Components/Footer";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
-import Invest from "./Invest";
-import ErrorPage from "./ErrorPage";
+import Invest from "./Pages/Invest";
+import ErrorPage from "./Pages/ErrorPage";
 function App() {
   const [dark, isDark] = useState<boolean>(() => {
     const saved = localStorage.getItem("theme");
