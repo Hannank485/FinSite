@@ -107,8 +107,8 @@ export function LumpsumInvest({
             className="border border-card dark:border-darkCard p-1 rounded-md"
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0) {
-                alert("Number Cannot be Negative");
+              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
+                alert("Number Cannot be Negative or 0");
               } else {
                 return handleChange("principle", e.target.value);
               }
@@ -126,8 +126,8 @@ export function LumpsumInvest({
             className="border border-card dark:border-darkCard p-1 rounded-md"
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0) {
-                alert("Number Cannot be Negative");
+              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
+                alert("Number Cannot be Negative or 0");
               } else {
                 return handleChange("time", e.target.value);
               }
@@ -143,8 +143,8 @@ export function LumpsumInvest({
             className="border border-card dark:border-darkCard p-1 rounded-md"
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0) {
-                alert("Number Cannot be Negative");
+              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
+                alert("Number Cannot be Negative or 0");
               } else {
                 return handleChange("return", e.target.value);
               }
@@ -207,8 +207,8 @@ export function SipInvest({
             className="border border-card dark:border-darkCard p-1 rounded-md"
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0) {
-                alert("Number Cannot be Negative");
+              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
+                alert("Number Cannot be Negative or 0");
               } else {
                 return handleChange("principle", e.target.value);
               }
@@ -226,8 +226,8 @@ export function SipInvest({
             className="border border-card dark:border-darkCard p-1 rounded-md"
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0) {
-                alert("Number Cannot be Negative");
+              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
+                alert("Number Cannot be Negative or 0");
               } else {
                 return handleChange("time", e.target.value);
               }
@@ -243,8 +243,8 @@ export function SipInvest({
             className="border border-card dark:border-darkCard p-1 rounded-md"
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0) {
-                alert("Number Cannot be Negative");
+              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
+                alert("Number Cannot be Negative or 0");
               } else {
                 return handleChange("return", e.target.value);
               }
