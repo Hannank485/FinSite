@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap");
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import "tailwindcss-animated";
+
+@theme {
+  --color-primaryText: #0f172a;
+  --color-muted: #64748b;
+  --color-card: #e2e8f0;
+  --color-accent: #3b82f6;
+  --color-softBG: #dbeafe;
+  --color-hover: #2563eb;
+  --color-active: #1d4ed8;
+  --color-darkBG: #0b1220;
+  --color-darkCard: #1f2937;
+  --color-darkPrimary: #e5e7eb;
+  --color-darkSecondary: #94a3b8;
+  --color-darkSoftBG: #1e3a8a;
+  --color-darkAccent: #60a5fa;
+  --color-darkHover: #93c5fd;
+}
+* {
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: "Space Grotesk", sans-serif;
+}
+p,
+h2 {
+  font-family: "Inter";
+}
