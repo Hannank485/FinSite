@@ -3,6 +3,7 @@ import { FaMoneyBillWave } from "react-icons/fa6";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import type { investDataType } from "../Pages/Invest";
+import { useEffect, useState } from "react";
 
 export function InvestType({
   handleNext,
@@ -65,6 +66,13 @@ export function InvestType({
     </section>
   );
 }
+export function ErrorValidation({ errorType }: { errorType: string }) {
+  return (
+    <h1 className="font-bold text-sm text-red-600 dark:text-red-500">
+      {errorType} cannot be 0 or less than 0
+    </h1>
+  );
+}
 
 export function LumpsumInvest({
   handleSubmit,
@@ -80,6 +88,30 @@ export function LumpsumInvest({
   const handleChange = (field: string, value: string) => {
     investment((prev) => ({ ...prev, [field]: value }));
   };
+  type errorCheckType = {
+    principalError: boolean | null;
+    tenureError: boolean | null;
+    returnError: boolean | null;
+  };
+  const [errors, setErrors] = useState<errorCheckType>({
+    principalError: null,
+    tenureError: null,
+    returnError: null,
+  });
+  const handleError = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    typeError: string,
+    changeType: string,
+  ) => {
+    if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
+      setErrors((prev) => ({ ...prev, [typeError]: true }));
+      e.target.value = "";
+    } else {
+      setErrors((prev) => ({ ...prev, [typeError]: false }));
+      return handleChange(changeType, e.target.value);
+    }
+  };
+
   return (
     <>
       <section className=" border border-card p-5 dark:border-darkCard animate-fade-left animate-once animate-ease-out">
@@ -101,55 +133,47 @@ export function LumpsumInvest({
           }}
         >
           <label htmlFor="Principal">Principal Amount (USD)</label>
+          {errors.principalError && <ErrorValidation errorType="Principle" />}
+
           <input
             type="number"
             name="Principal"
-            className="border border-card dark:border-darkCard p-1 rounded-md"
+            className={`border-2   p-1 rounded-md focus:outline-none ${errors.principalError ? "focus:border-red-500 border-red-500 dark:border-red-400" : errors.principalError === null ? "border-card dark:border-darkCard" : "border-green-600 dark:border-green-500"}`}
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
-                alert("Number Cannot be Negative or 0");
-              } else {
-                return handleChange("principle", e.target.value);
-              }
+              handleError(e, "principalError", "principle");
             }}
-            value={
-              investmentData.principle === "0" ? "" : investmentData.principle
-            }
+            max={999999999999}
             placeholder="0"
             step="0.01"
           />
           <label htmlFor="Year">Tenure (Years)</label>
+          {errors.tenureError && <ErrorValidation errorType="Tenure" />}
+
           <input
             type="number"
             name="Year"
-            className="border border-card dark:border-darkCard p-1 rounded-md"
+            className={`border-2   p-1 rounded-md focus:outline-none ${errors.tenureError ? "focus:border-red-500 border-red-500 dark:border-red-400" : errors.tenureError === null ? "border-card dark:border-darkCard" : "border-green-600 dark:border-green-500"}`}
+            max={100}
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
-                alert("Number Cannot be Negative or 0");
-              } else {
-                return handleChange("time", e.target.value);
-              }
+              handleError(e, "tenureError", "time");
             }}
-            value={investmentData.time === "0" ? "" : investmentData.time}
             placeholder="0"
             step="0.01"
           />
           <label htmlFor="roi">Rate of Return %</label>
+          {errors.returnError && <ErrorValidation errorType="Rate of Return" />}
+
           <input
             type="number"
             name="roi"
-            className="border border-card dark:border-darkCard p-1 rounded-md"
+            className={`border-2   p-1 rounded-md focus:outline-none ${errors.returnError ? "focus:border-red-500 border-red-500 dark:border-red-400" : errors.returnError === null ? "border-card dark:border-darkCard" : "border-green-600 dark:border-green-500"}`}
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
-                alert("Number Cannot be Negative or 0");
-              } else {
-                return handleChange("return", e.target.value);
-              }
+              handleError(e, "returnError", "return");
             }}
-            value={investmentData.return === "0" ? "" : investmentData.return}
+            max={200}
             placeholder="0"
             step="0.01"
           />
@@ -179,6 +203,30 @@ export function SipInvest({
   const handleChange = (field: string, value: string) => {
     investment((prev) => ({ ...prev, [field]: value }));
   };
+  type errorCheckType = {
+    principalError: boolean | null;
+    tenureError: boolean | null;
+    returnError: boolean | null;
+  };
+  const [errors, setErrors] = useState<errorCheckType>({
+    principalError: null,
+    tenureError: null,
+    returnError: null,
+  });
+  const handleError = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    typeError: string,
+    changeType: string,
+  ) => {
+    if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
+      setErrors((prev) => ({ ...prev, [typeError]: true }));
+      e.target.value = "";
+    } else {
+      setErrors((prev) => ({ ...prev, [typeError]: false }));
+      return handleChange(changeType, e.target.value);
+    }
+  };
+
   return (
     <>
       <section className=" border border-card p-5 dark:border-darkCard animate-fade-left animate-once animate-ease-out">
@@ -201,55 +249,47 @@ export function SipInvest({
           }}
         >
           <label htmlFor="Principal">Principal Amount (Monthly) (USD)</label>
+          {errors.principalError && <ErrorValidation errorType="Principle" />}
           <input
             type="number"
             name="Principal"
-            className="border border-card dark:border-darkCard p-1 rounded-md"
+            className={`border-2   p-1 rounded-md focus:outline-none ${errors.principalError ? "focus:border-red-500 border-red-500 dark:border-red-400" : errors.principalError === null ? "border-card dark:border-darkCard" : "border-green-600 dark:border-green-500"}`}
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
-                alert("Number Cannot be Negative or 0");
-              } else {
-                return handleChange("principle", e.target.value);
-              }
+              handleError(e, "principalError", "principle");
             }}
-            value={
-              investmentData.principle === "0" ? "" : investmentData.principle
-            }
+            max={999999999999}
             placeholder="0"
             step="0.01"
           />
           <label htmlFor="Year">Tenure (Years)</label>
+          {errors.tenureError && <ErrorValidation errorType="Tenure" />}
+
           <input
             type="number"
             name="Year"
-            className="border border-card dark:border-darkCard p-1 rounded-md"
+            className={`border-2   p-1 rounded-md focus:outline-none ${errors.tenureError ? "focus:border-red-500 border-red-500 dark:border-red-400" : errors.tenureError === null ? "border-card dark:border-darkCard" : "border-green-600 dark:border-green-500"}`}
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
-                alert("Number Cannot be Negative or 0");
-              } else {
-                return handleChange("time", e.target.value);
-              }
+              handleError(e, "tenureError", "time");
             }}
-            value={investmentData.time === "0" ? "" : investmentData.time}
+            max={100}
             placeholder="0"
             step="0.01"
           />
+
           <label htmlFor="roi">Rate of Return %</label>
+          {errors.returnError && <ErrorValidation errorType="Rate of Return" />}
+
           <input
             type="number"
             name="roi"
-            className="border border-card dark:border-darkCard p-1 rounded-md"
+            className={`border-2   p-1 rounded-md focus:outline-none ${errors.returnError ? "focus:border-red-500 border-red-500 dark:border-red-400" : errors.returnError === null ? "border-card dark:border-darkCard" : "border-green-600 dark:border-green-500"}`}
             required
             onChange={(e) => {
-              if (Number(e.target.value) < 0 || Number(e.target.value) === 0) {
-                alert("Number Cannot be Negative or 0");
-              } else {
-                return handleChange("return", e.target.value);
-              }
+              handleError(e, "returnError", "return");
             }}
-            value={investmentData.return === "0" ? "" : investmentData.return}
+            max={200}
             placeholder="0"
             step="0.01"
           />
