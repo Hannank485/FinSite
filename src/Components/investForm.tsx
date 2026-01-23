@@ -142,7 +142,7 @@ export function LumpsumInvest({
             onChange={(e) => {
               handleError(e, "principalError", "principle");
             }}
-            max={999999999999}
+            max={100000000}
             placeholder="0"
             step="0.01"
           />
@@ -153,7 +153,7 @@ export function LumpsumInvest({
             type="number"
             name="Year"
             className={`border-2   p-1 rounded-md focus:outline-none ${errors.tenureError ? "focus:border-red-500 border-red-500 dark:border-red-400" : errors.tenureError === null ? "border-card dark:border-darkCard" : "border-green-600 dark:border-green-500"}`}
-            max={100}
+            max={50}
             required
             onChange={(e) => {
               handleError(e, "tenureError", "time");
@@ -172,7 +172,7 @@ export function LumpsumInvest({
             onChange={(e) => {
               handleError(e, "returnError", "return");
             }}
-            max={200}
+            max={50}
             placeholder="0"
             step="0.01"
           />
@@ -256,7 +256,7 @@ export function SipInvest({
             onChange={(e) => {
               handleError(e, "principalError", "principle");
             }}
-            max={999999999999}
+            max={1000000}
             placeholder="0"
             step="0.01"
           />
@@ -271,7 +271,7 @@ export function SipInvest({
             onChange={(e) => {
               handleError(e, "tenureError", "time");
             }}
-            max={100}
+            max={50}
             placeholder="0"
             step="0.01"
           />
@@ -287,7 +287,7 @@ export function SipInvest({
             onChange={(e) => {
               handleError(e, "returnError", "return");
             }}
-            max={200}
+            max={50}
             placeholder="0"
             step="0.01"
           />
