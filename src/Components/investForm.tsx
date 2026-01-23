@@ -3,7 +3,7 @@ import { FaMoneyBillWave } from "react-icons/fa6";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import type { investDataType } from "../Pages/Invest";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function InvestType({
   handleNext,
@@ -78,7 +78,6 @@ export function LumpsumInvest({
   handleSubmit,
   handleBack,
   investment,
-  investmentData,
 }: {
   handleSubmit: () => void;
   handleBack: () => void;
@@ -193,7 +192,6 @@ export function SipInvest({
   handleSubmit,
   handleBack,
   investment,
-  investmentData,
 }: {
   handleSubmit: () => void;
   handleBack: () => void;
