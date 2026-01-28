@@ -8,8 +8,7 @@ FinSite is a responsive financial planning web application designed to calculate
 ## 🔗 Live Demo
 
 **Live Application:**  
-https://your-live-link-here
-
+https://fin-site.vercel.app/
 ---
 
 ## Overview
