@@ -16,7 +16,7 @@ function Navbar({ state, click }: { state: boolean; click: () => void }) {
           <Link to="/">
             <div className="flex gap-1  font-extrabold items-center text-lg ">
               <FaPiggyBank className="text-accent" />
-              <h1>FinSight</h1>
+              <h1>FinSite</h1>
             </div>
           </Link>
           <nav>

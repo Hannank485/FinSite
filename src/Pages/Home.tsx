@@ -31,9 +31,7 @@ function Home() {
     <>
       <main className=" flex flex-col items-center">
         <section className="text-center mb-8 max-w-3xl animate-fade-down animate-ease-out">
-          <h1 className="text-4xl md:text-7xl font-bold">
-            Welcome to FinSight
-          </h1>
+          <h1 className="text-4xl md:text-7xl font-bold">Welcome to FinSite</h1>
           <p className="text-lg md:text-2xl max-w-md md:max-w-3xl text-muted dark:text-darkSecondary">
             Your personal finance companion. Seamlessly track investments and
             manage your budget with our powerful, easy-to-use tools.
