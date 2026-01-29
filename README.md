@@ -25,7 +25,6 @@ FinSite enables users to select an investment type, enter relevant financial par
   - Rate of Return (ROI)
   - Investment tenure
   - Principal or contribution amount
-- Real-time calculation updates based on user input
 
 ### Card-Based User Flow
 - Step-driven, card-based interface
